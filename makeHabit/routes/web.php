@@ -13,7 +13,7 @@
 
 Route::get('/', 'HabitController@index');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HabitController@index')->name('home');
 
