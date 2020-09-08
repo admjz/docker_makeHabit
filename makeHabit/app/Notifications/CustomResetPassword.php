@@ -44,10 +44,10 @@ class CustomResetPassword extends ResetPassword
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject(__('Reset Password'))
-            ->line(__('Click button below and reset password.'))
-            ->action(__('Reset password'), url(route('password.reset', $this->token, false)))
-            ->line(__('If you did not request a password reset, no further action is required.'));
+            ->subject(__('[makeHabit]パスワード再設定'))
+            ->line(__('下のボタンをクリックしてパスワードを再設定してください。'))
+            ->action(__('パスワード再設定'), url(route('password.reset', $this->token, false)))
+            ->line(__('このメールにお心当たりがない場合は、お手数ですが削除をお願い致します。'));
     }
 
     /**
