@@ -11,18 +11,22 @@
                 {!! Form::close() !!}
                 <div class="card-body margin-top50">
                     <form method="POST" action="{{ route('login') }}">
+                        @error('email')
+                            <span class="error-message" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        @error('password')
+                            <span class="error-message" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                         @csrf
-                        <div class="form-group row">
+                        <div class="form-group row margin-top30">
                             <label for="email" class="col-md-4 col-form-label text-md-right">Eメール</label>
 
                             <div class="col-md-6 margin-top10">
                                 <input id="email" type="email" class="form-control input-area @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="error-message" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
                         </div>
 
@@ -31,12 +35,6 @@
 
                             <div class="col-md-6 margin-top10">
                                 <input id="password" type="password" class="form-control input-area @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="error-message" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
                         </div>
 
