@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name'              => 'Banjo&Kazui',
                 'email'             => 'Banjo@gmai.com',
-                'email_verified_at' => '2020-09-09 13:31:44',
+                'email_verified_at' => '2020-01-01 00:00:00',
                 'password'          => Hash::make('banjobanjo'),
             ]
         ]);
