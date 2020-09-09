@@ -14,9 +14,10 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->truncate();
         DB::table('users')->insert([
             [
-                'name'     => 'Banjo',
-                'email'    => 'Banjo@gmai.com',
-                'password' => Hash::make('banjobanjo'),
+                'name'              => 'Banjo&Kazui',
+                'email'             => 'Banjo@gmai.com',
+                'email_verified_at' => '2020-09-09 13:31:44',
+                'password'          => Hash::make('banjobanjo'),
             ]
         ]);
     }
