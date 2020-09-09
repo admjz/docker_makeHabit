@@ -40,6 +40,8 @@ class ExecutionController extends Controller
     public function edit($executionId)
     {
         $execution = $this->execution->findExecution($executionId);
+        $habit = $execution->habit;
+        $this->authorize('update', [$execution, $habit]);
         return view('/execution/edit', compact('execution'));
     }
 
