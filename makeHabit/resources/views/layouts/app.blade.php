@@ -11,15 +11,19 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
 </head>
 <body>
     <div class="app">
@@ -72,6 +76,18 @@
                 </div>
             </nav>
         </div>
+        <script>
+            @if (session('flash_success'))
+                $(function () {
+                    toastr.success('{{ session('flash_success') }}');
+                });
+            @endif
+            toastr.options = {
+                "positionClass": "toast-top-center",
+                "timeOut": "5000",
+                "closeButton": true,
+            };
+        </script>
         <main class="py-4">
             @yield('content')
         </main>
