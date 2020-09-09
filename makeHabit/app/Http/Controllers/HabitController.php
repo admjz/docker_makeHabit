@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateHabitRequest;
 use App\Models\Habit;
-use App\Models\Execution;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class HabitController extends Controller
@@ -26,7 +24,7 @@ class HabitController extends Controller
      */
     public function index()
     {
-        $habits = $this->habit->getHabits(Auth::id());
+        $habits = $this->habit->getMyHabits();
         return view('habit.index', compact('habits'));
     }
 
@@ -64,6 +62,7 @@ class HabitController extends Controller
     public function show($habitId)
     {
         $habit = $this->habit->findHabit($habitId);
+        $this->authorize('view', $habit);
         $executions = $habit->executions()->orderBy('created_at', 'desc')->paginate();
         $today = Carbon::today();
         $execDate = $this->habit->findExecutions($habitId);
@@ -87,6 +86,7 @@ class HabitController extends Controller
     public function edit($habitId)
     {
         $habit = $this->habit->findHabit($habitId);
+        $this->authorize('view', $habit);
         return view('/habit/edit', compact('habit'));
     }
 
