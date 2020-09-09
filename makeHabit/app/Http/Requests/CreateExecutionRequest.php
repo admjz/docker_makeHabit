@@ -24,6 +24,7 @@ class CreateExecutionRequest extends FormRequest
     public function rules()
     {
         return [
+            'habit_id' => 'exists:habits,id,deleted_at,NULL',
             'contents' => 'max:100',
         ];
     }
