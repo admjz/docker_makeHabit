@@ -126,6 +126,12 @@ button:hover {
   font-size: 25px;
 }
 
+.success-message {
+  display: block;
+  margin-top: 20px;
+  color: #0000ff;
+}
+
 .error-message {
   display: block;
   margin-top: 20px;
@@ -153,6 +159,10 @@ button:hover {
   font-size: 16px;
   opacity: 0;
   transition: 0.5s;
+}
+
+.dropdown-menu > li {
+  text-align: center;
 }
 
 .nav-item > p {
@@ -423,6 +433,10 @@ button:hover {
     font-size: 16px;
     transition: 0s;
     opacity: 1;
+  }
+
+  .dropdown-menu > li {
+    text-align: right;
   }
 
   .nav-item > p {
