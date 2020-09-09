@@ -5,8 +5,8 @@ namespace App\Policies;
 use App\Models\Execution;
 use App\Models\Habit;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Auth\Access\Response;
 
 class ExecutionPolicy
 {

@@ -4,8 +4,8 @@ namespace App\Policies;
 
 use App\Models\User;
 use App\Models\Habit;
-use Illuminate\Auth\Access\Response;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Auth\Access\Response;
 
 class HabitPolicy
 {

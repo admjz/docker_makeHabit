@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateExecutionRequest;
 use App\Models\Execution;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ExecutionController extends Controller
 {

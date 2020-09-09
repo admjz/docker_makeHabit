@@ -4,9 +4,8 @@ namespace App\Providers;
 
 use App\Models\Execution;
 use App\Models\Habit;
-use App\Policies\HabitPolicy;
 use App\Policies\ExecutionPolicy;
-use Illuminate\Support\Facades\Gate;
+use App\Policies\HabitPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
