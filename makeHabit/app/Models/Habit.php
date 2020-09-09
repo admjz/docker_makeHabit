@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
 
 class Habit extends Model
 {
@@ -23,9 +24,9 @@ class Habit extends Model
         return $this->hasMany('App\Models\Execution');
     }
 
-    public function getHabits($currentUserId)
+    public function getMyHabits()
     {
-        return $this->where('user_id', $currentUserId)->orderBy('created_at')->paginate();
+        return $this->where('user_id', Auth::id())->orderBy('created_at')->paginate();
     }
 
     public function saveHabit($inputs)
