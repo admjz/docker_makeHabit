@@ -27,7 +27,11 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/habit';
+    protected function redirectTo()
+    {
+        session()->flash('flash_success', 'ログインしました');
+        return '/habit';
+    }
 
     /**
      * Create a new controller instance.
@@ -45,6 +49,7 @@ class LoginController extends Controller
         $inputs['e-mail'] = 'Banjo@gmai.com';
         $inputs['password'] = 'banjobanjo';
         if (Auth::attempt(['email' => $inputs['e-mail'], 'password' => $inputs['password']])) {
+            session()->flash('flash_success', 'ログインしました');
             return redirect()->route('habit.index');
         }
         return back();
@@ -52,6 +57,7 @@ class LoginController extends Controller
 
     public function loggedOut(Request $request)
     {
+        session()->flash('flash_success', 'ログアウトしました');
         return redirect('/login');
     }
 }

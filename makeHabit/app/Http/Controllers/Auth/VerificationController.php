@@ -25,7 +25,11 @@ class VerificationController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/habit';
+    protected function redirectTo()
+    {
+        session()->flash('flash_success', 'ログインしました');
+        return '/habit';
+    }
 
     /**
      * Create a new controller instance.
