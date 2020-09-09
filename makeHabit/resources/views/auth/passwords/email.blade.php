@@ -5,14 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('パスワードをリセットします。') }}</div>
-
                 <div class="card-body margin-top30">
                     @if (session('status'))
-                        <div class="error-message" role="alert">
+                        <div class="success-message" role="alert">
                             {{ session('status') }}
                         </div>
                     @else
+                        <div class="card-header error-message">{{ __('パスワードをリセットします。') }}</div>
                         <form method="POST" action="{{ route('password.email') }}" class="margin-top30">
                             @csrf
 
