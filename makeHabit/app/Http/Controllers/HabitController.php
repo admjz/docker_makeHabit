@@ -86,7 +86,7 @@ class HabitController extends Controller
     public function edit($habitId)
     {
         $habit = $this->habit->findHabit($habitId);
-        $this->authorize('view', $habit);
+        $this->authorize('update', $habit);
         return view('/habit/edit', compact('habit'));
     }
 
