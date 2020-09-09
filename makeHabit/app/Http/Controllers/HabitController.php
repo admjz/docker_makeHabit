@@ -51,6 +51,7 @@ class HabitController extends Controller
         $inputs = $request->input();
         $inputs['user_id'] = Auth::id();
         $this->habit->saveHabit($inputs);
+        session()->flash('flash_success', '新しい習慣を登録しました');
         return redirect()->route('habit.index');
     }
 
@@ -100,6 +101,7 @@ class HabitController extends Controller
     {
         $inputs = $request->input();
         $this->habit->updateHabit($habitId, $inputs);
+        session()->flash('flash_success', '習慣のタイトルを変更しました');
         return redirect()->route('habit.index');
     }
 
