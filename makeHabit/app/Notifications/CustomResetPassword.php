@@ -45,7 +45,7 @@ class CustomResetPassword extends ResetPassword
     {
         return (new MailMessage)
             ->subject(__('[makeHabit]パスワード再設定'))
-            ->line(__('下のボタンをクリックしてパスワードを再設定してください。'))
+            ->line(__('下のリンクをクリックしてパスワードを再設定してください。'))
             ->action(__('パスワード再設定'), url(route('password.reset', $this->token, false)))
             ->line(__('このメールにお心当たりがない場合は、お手数ですが削除をお願い致します。'));
     }
