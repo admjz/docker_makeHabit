@@ -26,7 +26,7 @@ class Habit extends Model
 
     public function getMyHabits()
     {
-        return $this->where('user_id', Auth::id())->orderBy('created_at')->paginate();
+        return $this->where('user_id', Auth::id())->orderBy('created_at', 'desc')->paginate();
     }
 
     public function saveHabit($inputs)
