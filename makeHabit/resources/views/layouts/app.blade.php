@@ -81,6 +81,10 @@
                 $(function () {
                     toastr.success('{{ session('flash_success') }}');
                 });
+            @elseif (session('flash_error'))
+                $(function () {
+                    toastr.error('{{ session('flash_error') }}');
+                });
             @endif
             toastr.options = {
                 "positionClass": "toast-top-center",
