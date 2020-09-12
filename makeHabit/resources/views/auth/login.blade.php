@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="container_title">ログイン</div>
                 {!! Form::open(['route' => 'login.guest']) !!}
-                    {!! Form::button('ゲストとしてログインする', ['class' => 'btn btn-guest margin-top50', 'type' => 'submit']) !!}
+                    {!! Form::button('ゲストとしてログイン', ['class' => 'btn btn-guest margin-top50', 'type' => 'submit']) !!}
                 {!! Form::close() !!}
                 <div class="card-body margin-top50">
                     <form method="POST" action="{{ route('login') }}">
@@ -45,7 +45,7 @@
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-forget btn-link margin-top10" href="{{ route('password.request') }}">
+                                    <a class="btn btn-forget btn-link margin-top30" href="{{ route('password.request') }}">
                                         パスワードをお忘れですか？
                                     </a>
                                 @endif
