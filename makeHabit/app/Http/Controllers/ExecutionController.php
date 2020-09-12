@@ -54,8 +54,8 @@ class ExecutionController extends Controller
     {
         $inputs = $request->all();
         $this->execution->updateExecution($executionId, $inputs);
-        $habit = $this->execution->findHabit($executionId);
         $executions = $this->execution->findExecution($executionId);
+        $habit = $executions->habit;
         session()->flash('flash_success', '記録の内容を変更しました');
         return redirect()->route('habit.show', compact('habit', 'executions'));
     }
