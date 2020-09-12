@@ -48,7 +48,7 @@
           </div>
           <div class="delete-form">
             {!! Form::open(['route' => ['habit.destroy', $habit->id], 'method' => 'DELETE'])!!}
-              {!! Form::button('<i class="fas fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn delete-btn', 'onclick' => "return confirm('このHabitを削除します。よろしいですか？')"]) !!}
+              {!! Form::button('<i class="fas fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-delete', 'onclick' => "return confirm('このHabitを削除します。よろしいですか？')"]) !!}
             {!! Form::close()!!}
           </div>
         </div>

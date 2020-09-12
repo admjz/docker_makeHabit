@@ -6,9 +6,8 @@
   <div class="margin-top50">
     {!! Form::open(['route' => ['execution.update', $execution->id], 'method' => 'PUT']) !!}
       <div>
-        <div>
-          {{ $execution->created_at->format('Y/m/d')}}
-        </div>
+        <div class="container-subtitle">【 {{ $execution->habit->title }} 】</div>
+        <div class="container-subtitle margin-top10">{{ $execution->created_at->format('Y/m/d') }}の記録</div>
         <div class="margin-top30">
           {!! Form::textarea('contents', $execution->contents, ['class' => 'input-area', 'rows' => 5]) !!}
           @if ($errors->has('contents'))

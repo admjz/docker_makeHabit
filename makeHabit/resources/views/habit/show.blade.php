@@ -41,7 +41,7 @@
         </div>
         <div class="delete-form margin-top30">
           {!! Form::open(['route' => ['execution.destroy', $execution->id], 'method' => 'DELETE'])!!}
-            {!! Form::button('<i class="fas fa-trash-alt fa-2x"></i>', ['type' => 'submit', 'class' => 'btn delete-btn', 'onclick' => "return confirm('この記録を削除します。よろしいですか？')"])!!}
+            {!! Form::button('<i class="fas fa-trash-alt fa-2.5x"></i>', ['type' => 'submit', 'class' => 'btn btn-delete', 'onclick' => "return confirm('この記録を削除します。よろしいですか？')"])!!}
           {!! Form::close()!!}
         </div>
       </div>

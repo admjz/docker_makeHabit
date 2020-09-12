@@ -43,13 +43,21 @@ button:hover {
   transition: 0.5s;
 }
 
+.btn:not(.btn-delete) {
+  font-size: 18px;
+}
+
+.execution-box > .btn {
+  font-size: 22px;
+}
+
 .btn:hover {
   background-color: #eeeeee;
 }
 
 .btn-add {
   width: 130px;
-  line-height: 3;
+  line-height: 2.5;
   color: #fff;
   background-color: #6495ed;
 }
@@ -84,8 +92,7 @@ button:hover {
 }
 
 .btn-disabled {
-  width :200px;
-  font-size: 13.3333px;
+  width :250px;
   font-weight: bold;
   color: #6495ed;
   background-color: #eeeeee;
@@ -97,6 +104,7 @@ button:hover {
 
 .input-area {
   width: 30%;
+  font-size: 18px;
   line-height: 2;
   background-color: #fff;
   border: 1px solid #808080;
@@ -124,6 +132,10 @@ button:hover {
 
 .container_title {
   font-size: 25px;
+}
+
+.container-subtitle {
+  font-size: 22px;
 }
 
 .first-message {
@@ -272,7 +284,7 @@ button:hover {
   margin-top: 10px;
 }
 
-.delete-btn {
+.btn-delete {
   padding: 0;
 }
 
@@ -493,10 +505,6 @@ button:hover {
     margin-left: 0px;
   }
 
-  .container_title {
-    font-size: 5vw;
-  }
-
   .input-area,
   .execution-box {
     width: 80%;
@@ -509,7 +517,7 @@ button:hover {
   }
 
   .habit-table tr:nth-child(-n+3) {
-    font-size: 5vw;
+    font-size: 22px;
     font-weight: bold;
   }
 }
