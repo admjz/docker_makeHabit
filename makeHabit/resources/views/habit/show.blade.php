@@ -8,7 +8,15 @@
       {!! Form::open(['route' => 'execution.store']) !!}
         {!! Form::hidden('habit_id', $habit->id) !!}
         <div>
-          {!! Form::textarea('contents', '', ['class' => 'input-area', 'placeholder' => '例)腹筋50回、腕立て伏せ50回 &#13;&#10;&#13;&#10;※何も記入しなくても記録できます', 'rows' => 5]) !!}
+          {!! Form::textarea('contents',
+                              '',
+                              [
+                                'class' => 'input-area',
+                                'placeholder' => '例)腹筋50回、腕立て伏せ50回 &#13;&#10;&#13;&#10;※何も記入しなくても記録できます',
+                                'rows' => 5
+                              ]
+                            )
+            !!}
           @if ($errors->has('habit_id'))
             <span class="error-message">{{ $errors->first('habit_id') }}</span>
           @elseif ($errors->has('contents'))
@@ -41,7 +49,14 @@
         </div>
         <div class="delete-form margin-top30">
           {!! Form::open(['route' => ['execution.destroy', $execution->id], 'method' => 'DELETE'])!!}
-            {!! Form::button('<i class="fas fa-trash-alt fa-2.5x"></i>', ['type' => 'submit', 'class' => 'btn btn-delete', 'onclick' => "return confirm('この記録を削除します。よろしいですか？')"])!!}
+            {!! Form::button('<i class="fas fa-trash-alt fa-2.5x"></i>',
+                              [
+                                'type' => 'submit',
+                                'class' => 'btn btn-delete',
+                                'onclick' => "return confirm('この記録を削除します。よろしいですか？')"
+                              ]
+                            )
+            !!}
           {!! Form::close()!!}
         </div>
       </div>

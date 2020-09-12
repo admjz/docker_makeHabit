@@ -34,9 +34,9 @@
                   <th>最新の実施日</th>
                   <td>
                       @if (isset($execution))
-                        {{ $execution->format('Y/m/d') }}
+                        <span>{{ $execution->format('Y/m/d') }}</span>
                       @else
-                        まだありません
+                        <span>まだありません</span>
                       @endif
                   </td>
                 </tr>
