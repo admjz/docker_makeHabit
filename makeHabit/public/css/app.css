@@ -513,7 +513,7 @@ button:hover {
 
 @media screen and (max-width: 399px) {
   .habit-table {
-    font-size: 4vw;
+    font-size: 17px;
   }
 
   .habit-table tr:nth-child(-n+3) {
