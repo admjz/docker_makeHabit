@@ -38,6 +38,14 @@ class Execution extends Model
         return $this->find($executionId);
     }
 
+    public function findExecutions($habitId)
+    {
+        return $this->where('habit_id', $habitId)
+                    ->orderBy('created_at', 'desc')
+                    ->pluck('created_at')
+                    ->first();
+    }
+
     public function updateExecution($executionId, $inputs)
     {
         return $this->find($executionId)->fill($inputs)->save();
@@ -46,10 +54,5 @@ class Execution extends Model
     public function deleteExecution($executionId)
     {
         return $this->find($executionId)->delete();
-    }
-
-    public function findHabit($executionId)
-    {
-        return $this->find($executionId)->habit;
     }
 }
