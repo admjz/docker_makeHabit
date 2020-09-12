@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateExecutionRequest;
 use App\Models\Execution;
+use App\Http\Requests\CreateExecutionRequest;
 
 class ExecutionController extends Controller
 {
     private $execution;
 
-    public function __construct(Execution $ExecutionInstance)
+    public function __construct(Execution $execution)
     {
         $this->middleware('verified');
-        $this->execution = $ExecutionInstance;
+        $this->execution = $execution;
     }
 
     /**
