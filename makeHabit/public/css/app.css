@@ -256,6 +256,10 @@ button:hover {
   font-weight: bold;
 }
 
+.habit-table_title {
+  height: 50px;
+}
+
 .edit-form > a:hover {
   color: #000080;
 }

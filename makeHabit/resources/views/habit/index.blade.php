@@ -15,7 +15,7 @@
             <a href="{{ route('habit.show', $habit->id) }}">
               <table class="habit-table">
                 <tr>
-                  <td colspan="2">{{ $habit->title }}</td>
+                  <td colspan="2" class="habit-table_title">{{ $habit->title }}</td>
                 </tr>
                 <tr>
                   @php
