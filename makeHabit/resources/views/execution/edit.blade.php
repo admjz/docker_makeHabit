@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="habit-container">
-  <h2 class="container_title">記録したい内容を入力してください</h2>
+  <h2 class="container_title">記録したい内容は何ですか？</h2>
   <div class="margin-top50">
     {!! Form::open(['route' => ['execution.update', $execution->id], 'method' => 'PUT']) !!}
       <div>
