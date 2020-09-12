@@ -217,6 +217,13 @@ button:hover {
 .logo {
   height: 120px;
   width: 120px;
+  transition: 0.5s;
+}
+
+.logo:hover {
+  border-radius: 10%;
+  background-color: #eeeeee;
+  transition: 0.5s;
 }
 
 .create-habit {
@@ -496,6 +503,10 @@ button:hover {
 }
 
 @media screen and (max-width: 499px) {
+  .first-message {
+    padding: 50px 20px;
+  }
+
   .navbar-nav {
     display: block;
   }
