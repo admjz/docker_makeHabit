@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="habit-container">
-  <h2 class="container_title">習慣にしたいことを入力してください</h2>
+  <h2 class="container_title">習慣にしたいことは何ですか？</h2>
   <div class="margin-top50">
     {!! Form::open(['route' => 'habit.store']) !!}
       <div>
