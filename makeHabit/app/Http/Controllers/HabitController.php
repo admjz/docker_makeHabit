@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateHabitRequest;
+use App\Models\Execution;
 use App\Models\Habit;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -11,10 +12,13 @@ class HabitController extends Controller
 {
     private $habit;
 
-    public function __construct(Habit $HabitInstance)
+    private $execution;
+
+    public function __construct(Habit $habit, Execution $execution)
     {
         $this->middleware('verified');
-        $this->habit = $HabitInstance;
+        $this->habit = $habit;
+        $this->execution = $execution;
     }
 
     /**
@@ -65,7 +69,7 @@ class HabitController extends Controller
         $this->authorize('view', $habit);
         $executions = $habit->executions()->orderBy('created_at', 'desc')->paginate();
         $today = Carbon::today();
-        $execDate = $this->habit->findExecutions($habitId);
+        $execDate = $this->execution->findExecutions($habitId);
         $compareDate = $today->isSameday(Carbon::parse($execDate));
         if (is_null($execDate)) {
             $execDate = '';
