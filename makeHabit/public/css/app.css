@@ -478,7 +478,7 @@ button:hover {
   }
 
   .habit-container {
-    padding: 25px;
+    padding: 50px 25px;
   }
 
   .habit-wrapper {
@@ -514,6 +514,11 @@ button:hover {
   .nav-item:not(:first-child) {
     margin-top: 10px;
     margin-left: 0px;
+  }
+
+  .container_title,
+  .execution-contents {
+    font-size: 22px;
   }
 
   .input-area,
