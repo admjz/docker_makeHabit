@@ -11,7 +11,7 @@ class ExecutionController extends Controller
 
     public function __construct(Execution $execution)
     {
-        $this->middleware('verified');
+        $this->middleware('auth');
         $this->execution = $execution;
     }
 

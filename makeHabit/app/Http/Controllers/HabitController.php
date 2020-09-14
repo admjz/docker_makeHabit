@@ -16,7 +16,7 @@ class HabitController extends Controller
 
     public function __construct(Habit $habit, Execution $execution)
     {
-        $this->middleware('verified');
+        $this->middleware('auth');
         $this->habit = $habit;
         $this->execution = $execution;
     }
