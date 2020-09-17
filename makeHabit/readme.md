@@ -1,10 +1,10 @@
 # README
 
 ## makeHabit
-What makeHabit?
-"makeHabit" is a web app that can help you create your habits.
-Creating a habit is hard, but makeHabit can help you do it.
-I've added a login feature for you to try, so feel free to try it out!
+What makeHabit?  
+"makeHabit" is a web app that can help you create your habits.  
+Creating a habit is hard, but makeHabit can help you do it.  
+We've added a guest login feature, so feel free to try it out and if you like it, sign up for a new account to use it.  
 
 ## Features
 
@@ -19,10 +19,6 @@ I've added a login feature for you to try, so feel free to try it out!
 - MySQL 5.7.31
 - Laravel 6.18.31
 - OS macOS 10.15.6
-
-## Note
-
-I don't test environments under Linux and mobile.
 
 ## Author
 
