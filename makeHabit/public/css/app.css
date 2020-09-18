@@ -260,6 +260,63 @@ button:hover {
   margin-top: 30px;
 }
 
+.dropdown {
+  position: relative;
+}
+
+.dropdown_btn {
+  display: block;
+  margin: 0 0 0 auto;
+  width: 1.5em;
+  padding: 0.2em;
+  background: none;
+}
+
+.dropdown_btn:focus {
+  outline: none;
+}
+
+.dropdown_btn.is-open::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  cursor: default;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.dropdown_menu {
+  display: none;
+  position: absolute;
+  width: 250px;
+  background: #fff;
+  border: 2px dashed #808080;
+  box-shadow: 0 2px 6px 2px rgba(60,64,67,0.149), 0 1px 2px 0 rgba(60,64,67,0.302);
+  border-radius: 4px;
+  overflow: hidden;
+  top: -30px;
+  right: 20px;
+}
+
+.dropdown_btn.is-open + .dropdown_menu {
+  display: block;
+  z-index: 4;
+}
+
+.dropdown_menu_list {
+  margin: 0;
+  padding: 0;
+}
+.dropdown_menu_list_item {
+  display: block;
+}
+.dropdown_item-link {
+  display: block;
+  padding: 1em 1.2em;
+}
+
 .habit-box_inner {
   width: 100%;
 }
