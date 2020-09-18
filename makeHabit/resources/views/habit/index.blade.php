@@ -11,44 +11,66 @@
     @else
       @foreach ($habits as $habit)
         <div class="habit-box">
+          <div class="dropdown">
+            <button class="dropdown_btn"><i class="fas fa-angle-down fa-2x"></i></button>
+            <div class="dropdown_menu">
+              <ul class="dropdown_menu_list">
+                <li class="dropdown_menu_list_item"><a href="{{ route('habit.edit', $habit->id) }}" class="dropdown_item-link">タイトルを編集する</a></li>
+              </ul>
+            </div>
+            <script>
+              $(function() {
+                $('.dropdown_btn').click(
+                  function(){
+                    $(this).toggleClass('is-open')
+                  }
+                );
+              });
+            </script>
+          </div>
           <div class="habit-box_inner">
-            <a href="{{ route('habit.show', $habit->id) }}">
-              <table class="habit-table">
-                <tr>
-                  <td colspan="2" class="habit-table_title">{{ $habit->title }}</td>
-                </tr>
-                <tr>
-                  @php
-                    $execution = $habit->executions->pluck('created_at')->last();
-                  @endphp
-                  <td colspan="2">
-                      @if (isset($execution))
-                        {{ $execution->diff(date("m/d H:i"))->format('%d日と%h時間  経過') }}
-                      @else
-                        &nbsp;
-                      @endif
-                  </td>
-                </tr>
-                <tr></tr>
-                <tr>
-                  <th>最新の実施日</th>
-                  <td>
-                      @if (isset($execution))
-                        <span>{{ $execution->format('Y/m/d') }}</span>
-                      @else
-                        <span>まだありません</span>
-                      @endif
-                  </td>
-                </tr>
-              </table>
-            </a>
+            <table class="habit-table">
+              <tr>
+                <td colspan="2" class="habit-table_title">{{ $habit->title }}</td>
+              </tr>
+              <tr>
+                @php
+                  $execution = $habit->executions->pluck('created_at')->last();
+                @endphp
+                <td colspan="2">
+                    @if (isset($execution))
+                      {{ $execution->diff(date("m/d H:i"))->format('%d日と%h時間  経過') }}
+                    @else
+                      &nbsp;
+                    @endif
+                </td>
+              </tr>
+              <tr></tr>
+              <tr>
+                <th>最新の実施日</th>
+                <td>
+                    @if (isset($execution))
+                      <span>{{ $execution->format('Y/m/d') }}</span>
+                    @else
+                      <span>まだありません</span>
+                    @endif
+                </td>
+              </tr>
+            </table>
           </div>
           <div class="btn edit-form">
-            <a href="{{ route('habit.edit', $habit->id) }}"><i class="fas fa-edit fa-2x"></i></a>
+            <a href="{{ route('habit.show', $habit->id) }}"><i class="fas fa-edit fa-2x"></i></a>
           </div>
           <div class="delete-form">
             {!! Form::open(['route' => ['habit.destroy', $habit->id], 'method' => 'DELETE'])!!}
-              {!! Form::button('<i class="fas fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-delete', 'onclick' => "return confirm('このHabitを削除します。よろしいですか？')"]) !!}
+              {!! Form::button('<i class="fas fa-trash-alt"></i>',
+                                [
+                                  'type' => 'submit',
+                                  'class' => 'btn btn-delete',
+                                  'onclick' => "return confirm('このHabitを削除します。よろしいですか？')"
+                                ]
+                              )
+              !!}
             {!! Form::close()!!}
           </div>
         </div>
@@ -56,7 +78,7 @@
     @endif
   </div>
   <div class="pager margin-top50">
-    {{ $habits->appends(request()->all())->links() }}
+    {{ $habits->links() }}
   </div>
 </div>
 
