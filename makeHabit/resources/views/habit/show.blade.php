@@ -63,7 +63,7 @@
     @endforeach
   </div>
   <div class="pager margin-top50">
-    {{ $executions->appends(request()->all())->links() }}
+    {{ $executions->links() }}
   </div>
 </div>
 
