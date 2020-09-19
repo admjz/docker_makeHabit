@@ -284,7 +284,7 @@ button:hover {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 0;
+  z-index: 1;
 }
 
 .dropdown_menu {
@@ -298,6 +298,7 @@ button:hover {
   overflow: hidden;
   top: 30px;
   right: 0px;
+  z-index: 2;
 }
 
 .dropdown_btn.is-open + .dropdown_menu {
@@ -321,7 +322,7 @@ button:hover {
 .delete-link {
   width: 100%;
   color: #c81c14;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .dropdown_item-link {
@@ -453,7 +454,7 @@ button:hover {
   width: 30%;
   position: relative;
   margin: 120px auto 0;
-  padding: 0 1em 1.5em;
+  padding: 0 1em 2em;
   border: solid 3px #3cb371;
   border-radius: 0 10px 10px;
 }
