@@ -34,9 +34,33 @@
     </div>
     @foreach($executions as $execution)
       <div class="execution-box">
+        <div class="dropdown margin-top10">
+          <button class="dropdown_btn"><i class="fas fa-angle-down fa-2x"></i></button>
+          <div class="dropdown_menu">
+            <ul class="dropdown_menu_list">
+              <li class="dropdown_menu_list_item">
+                <a href="{{ route('execution.edit', $execution->id) }}" class="dropdown_item-link">
+                  <i class="fas fa-edit"></i>記録内容を編集する
+                </a>
+              </li>
+              <li class="dropdown_menu_list_item">
+                {!! Form::open(['route' => ['execution.destroy', $execution->id], 'method' => 'DELETE'])!!}
+                  {!! Form::button('<i class="fas fa-trash-alt fa-sm"></i>この記録を削除する',
+                                    [
+                                      'type' => 'submit',
+                                      'class' => 'dropdown_item-link delete-link',
+                                      'onclick' => "return confirm('この記録を削除します。よろしいですか？')"
+                                    ]
+                                  )
+                  !!}
+                {!! Form::close()!!}
+              </li>
+            </ul>
+          </div>
+        </div>
         <div class="execution-box_inner">
           <div class="execution-date">{{ $execution->created_at->format('Y/m/d') }}</div>
-          <div class="execution-contents margin-top30">
+          <div class="execution-contents">
             @if (!empty($execution->contents))
               {!! nl2br(e($execution->contents)) !!}
             @else
@@ -44,24 +68,18 @@
             @endif
             </div>
         </div>
-        <div class="btn edit-form margin-top30">
-          <a href="{{ route('execution.edit', $execution->id) }}"><i class="fas fa-edit edit-execution"></i></a>
-        </div>
-        <div class="delete-form margin-top30">
-          {!! Form::open(['route' => ['execution.destroy', $execution->id], 'method' => 'DELETE'])!!}
-            {!! Form::button('<i class="fas fa-trash-alt fa-2.5x"></i>',
-                              [
-                                'type' => 'submit',
-                                'class' => 'btn btn-delete',
-                                'onclick' => "return confirm('この記録を削除します。よろしいですか？')"
-                              ]
-                            )
-            !!}
-          {!! Form::close()!!}
-        </div>
       </div>
     @endforeach
   </div>
+  <script>
+    $(function() {
+      $('.dropdown_btn').click(
+        function() {
+          $(this).toggleClass('is-open')
+        }
+      );
+    });
+  </script>
   <div class="pager margin-top50">
     {{ $executions->links() }}
   </div>
