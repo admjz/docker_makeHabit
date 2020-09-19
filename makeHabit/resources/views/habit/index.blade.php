@@ -7,7 +7,9 @@
   </div>
   <div class="habit-wrapper margin-top50">
     @if ($habits->isEmpty())
-      <div class="container_title margin-top30 first-message">右上の＋ボタンを押して、習慣にしたいことを登録しましょう！</div>
+      <div class="container_title margin-top30 first-message">
+        右上の＋ボタンを押して、習慣にしたいことを登録しましょう！
+      </div>
     @else
       @foreach ($habits as $habit)
         <div class="habit-box">
@@ -15,18 +17,25 @@
             <button class="dropdown_btn"><i class="fas fa-angle-down fa-2x"></i></button>
             <div class="dropdown_menu">
               <ul class="dropdown_menu_list">
-                <li class="dropdown_menu_list_item"><a href="{{ route('habit.edit', $habit->id) }}" class="dropdown_item-link">タイトルを編集する</a></li>
+                <li class="dropdown_menu_list_item">
+                  <a href="{{ route('habit.edit', $habit->id) }}" class="dropdown_item-link">
+                    <i class="fas fa-edit"></i>タイトルを編集する
+                  </a>
+                </li>
+                <li class="dropdown_menu_list_item">
+                  {!! Form::open(['route' => ['habit.destroy', $habit->id], 'method' => 'DELETE'])!!}
+                    {!! Form::button('<i class="fas fa-trash-alt fa-sm">この習慣を削除する</i>',
+                                      [
+                                        'type' => 'submit',
+                                        'class' => 'dropdown_item-link delete-link',
+                                        'onclick' => "return confirm('このHabitを削除します。よろしいですか？')"
+                                      ]
+                                    )
+                    !!}
+                  {!! Form::close()!!}
+                </li>
               </ul>
             </div>
-            <script>
-              $(function() {
-                $('.dropdown_btn').click(
-                  function(){
-                    $(this).toggleClass('is-open')
-                  }
-                );
-              });
-            </script>
           </div>
           <div class="habit-box_inner">
             <table class="habit-table">
@@ -58,23 +67,18 @@
               </tr>
             </table>
           </div>
-          <div class="btn edit-form">
-            <a href="{{ route('habit.show', $habit->id) }}"><i class="fas fa-edit fa-2x"></i></a>
-          </div>
-          <div class="delete-form">
-            {!! Form::open(['route' => ['habit.destroy', $habit->id], 'method' => 'DELETE'])!!}
-              {!! Form::button('<i class="fas fa-trash-alt"></i>',
-                                [
-                                  'type' => 'submit',
-                                  'class' => 'btn btn-delete',
-                                  'onclick' => "return confirm('このHabitを削除します。よろしいですか？')"
-                                ]
-                              )
-              !!}
-            {!! Form::close()!!}
+          <div class="btn show-button">
+            <a href="{{ route('habit.show', $habit->id) }}"><i class="far fa-calendar-check fa-2x"></i></a>
           </div>
         </div>
       @endforeach
+      <script>
+        $(function() {
+          $('.dropdown_btn').on('click', function(){
+              $(this).toggleClass('is-open')
+          });
+        });
+      </script>
     @endif
   </div>
   <div class="pager margin-top50">
