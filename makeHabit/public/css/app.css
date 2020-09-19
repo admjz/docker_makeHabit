@@ -284,7 +284,7 @@ button:hover {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 4;
 }
 
 .dropdown_menu {
@@ -298,12 +298,12 @@ button:hover {
   overflow: hidden;
   top: 30px;
   right: 0px;
-  z-index: 2;
+  z-index: 5;
 }
 
 .dropdown_btn.is-open + .dropdown_menu {
   display: block;
-  z-index: 1;
+  z-index: 4;
 }
 
 .dropdown_menu_list {
@@ -462,7 +462,7 @@ button:hover {
 .execution-box:not(:last-child)::after {
   content: "";
   display: inline-block;
-  width: 10px;
+  width: 7px;
   height: 125px;
   position: absolute;
   bottom: -125px;
