@@ -24,7 +24,7 @@
                 </li>
                 <li class="dropdown_menu_list_item">
                   {!! Form::open(['route' => ['habit.destroy', $habit->id], 'method' => 'DELETE'])!!}
-                    {!! Form::button('<i class="fas fa-trash-alt fa-sm">この習慣を削除する</i>',
+                    {!! Form::button('<i class="fas fa-trash-alt fa-sm"></i>この習慣を削除する',
                                       [
                                         'type' => 'submit',
                                         'class' => 'dropdown_item-link delete-link',
@@ -67,7 +67,7 @@
               </tr>
             </table>
           </div>
-          <div class="btn show-button">
+          <div class="btn show-button margin-top10">
             <a href="{{ route('habit.show', $habit->id) }}"><i class="far fa-calendar-check fa-2x"></i></a>
           </div>
         </div>
