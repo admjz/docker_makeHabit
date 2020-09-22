@@ -92,6 +92,24 @@
                 "closeButton": true,
             };
         </script>
+        <script>
+            var isClicked = false;
+            document.addEventListener('touchend', function (event) {
+                if (isClicked) {
+                    // double click
+                    if (event.cancelable) {
+                    event.preventDefault();
+                    }
+                    isClicked = false;
+                } else {
+                    // single click
+                    isClicked = true;
+                    setTimeout( function() {
+                    isClicked = false;
+                    }, 350);
+                }
+            }, false);
+        </script>
         <main class="py-4">
             @yield('content')
         </main>
